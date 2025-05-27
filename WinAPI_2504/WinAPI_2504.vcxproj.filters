@@ -129,6 +129,9 @@
     <ClInclude Include="Objects\BrickGame\BounceBall.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Objects\BrickGame\Brick.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI_2504.cpp">
@@ -222,6 +225,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Objects\BrickGame\BounceBall.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\BrickGame\Brick.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

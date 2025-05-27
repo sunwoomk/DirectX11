@@ -4,21 +4,26 @@ PlayerBar::PlayerBar()
 {
 	localPosition = CENTER;
 	Init();
+    rectCollider = new RectCollider(Vector2(120, 20));
 }
 
 PlayerBar::~PlayerBar()
 {
+    delete rectCollider;
 }
 
 void PlayerBar::Update()
 {
 	ControlKeyboard();
 	UpdateWorld();
+    rectCollider->SetLocalPosition(localPosition - Vector2(0, 350));
+    rectCollider->UpdateWorld();
 }
 
 void PlayerBar::Render()
 {
 	GameObject::Render();
+    rectCollider->Render();
 }
 
 void PlayerBar::ControlKeyboard()

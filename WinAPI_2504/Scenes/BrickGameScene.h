@@ -12,4 +12,5 @@ public:
 private:
 	PlayerBar* playerBar;
 	BounceBall* bounceBall;
+	vector<Brick*> bricks;
 };

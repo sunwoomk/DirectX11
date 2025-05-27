@@ -1,16 +1,18 @@
 #include "Framework.h"
-#include "PlayerBar.h"
-#include "BounceBall.h"
 
 BounceBall::BounceBall(PlayerBar* bar) : playerBar(bar)
 {
     localPosition = CENTER;
     Init();
     Reset();
+    circleCollider = new CircleCollider(5);
+    playerCollider = playerBar->GetRectCollider();
 }
 
 BounceBall::~BounceBall()
 {
+    delete circleCollider;
+    delete playerCollider;
 }
 
 void BounceBall::Update()
@@ -24,7 +26,7 @@ void BounceBall::Update()
         if (Input::Get()->IsKeyDown(VK_SPACE)) 
         {
             isLaunched = true;
-            velocity = Vector2(400, 400);
+            velocity = Vector2(0, SPEED);
         }
     }
     else 
@@ -34,20 +36,35 @@ void BounceBall::Update()
 
     if (localPosition.x > SCREEN_WIDTH - radius || localPosition.x < radius) 
     {
-        velocity.x = -velocity.x;
+        BounceX();
     }
 
-    if (localPosition.y > SCREEN_HEIGHT - radius || localPosition.y < radius)
+    if (localPosition.y > SCREEN_HEIGHT - radius)
     {
-        velocity.y = -velocity.y;
+        BounceY();
     }
+
+    if (localPosition.y < radius)
+        Reset();
 
     UpdateWorld();
+    circleCollider->SetLocalPosition(localPosition);
+    circleCollider->UpdateWorld();
+    isCollide = circleCollider->IsRectCollision(playerCollider, overlap);
+
+    if (isCollide) 
+    {
+        bounceDir = circleCollider->GetGlobalPosition() - playerCollider->GetGlobalPosition();
+        bounceDir.Normalize();
+        velocity = bounceDir * SPEED;
+    }
+
 }
 
 void BounceBall::Render()
 {
     GameObject::Render();
+    circleCollider->Render();
 }
 
 void BounceBall::Reset()

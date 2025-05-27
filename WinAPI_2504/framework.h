@@ -88,8 +88,10 @@ typedef XMFLOAT4X4 Float4x4;
 #include "Objects/Shooting/Plane.h"
 #include "Objects/Shooting/Bullet.h"
 
+#include "Objects/BrickGame/Item.h"
 #include "Objects/BrickGame/BounceBall.h"
 #include "Objects/BrickGame/PlayerBar.h"
+#include "Objects/BrickGame/Brick.h"
 
 #include "Scenes/Scene.h"
 #include "Framework/Manager/SceneManager.h"

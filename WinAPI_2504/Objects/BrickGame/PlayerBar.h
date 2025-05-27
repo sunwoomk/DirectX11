@@ -3,7 +3,7 @@
 class PlayerBar : public GameObject 
 {
 private:
-	const float SPEED = 500.0f;
+	const float SPEED = 700.0f;
 
 public:
 	PlayerBar();
@@ -12,7 +12,12 @@ public:
 	void Update();
 	void Render();
 
+	RectCollider* GetRectCollider() { return rectCollider; }
+
 private:
 	void ControlKeyboard();
 	void MakeMesh() override;
+
+private:
+	RectCollider* rectCollider;
 };

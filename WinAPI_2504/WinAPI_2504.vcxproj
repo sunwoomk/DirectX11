@@ -161,6 +161,7 @@
     <ClInclude Include="Framework\Utilities\Timer.h" />
     <ClInclude Include="Framework\Utilities\Utility.h" />
     <ClInclude Include="Objects\Basic\GameObject.h" />
+    <ClInclude Include="Objects\BrickGame\Brick.h" />
     <ClInclude Include="Objects\BrickGame\PlayerBar.h" />
     <ClInclude Include="Objects\BrickGame\BounceBall.h" />
     <ClInclude Include="Objects\Collider\CircleCollider.h" />
@@ -200,6 +201,7 @@
     <ClCompile Include="Framework\Utilities\Utility.cpp" />
     <ClCompile Include="Objects\Basic\GameObject.cpp" />
     <ClCompile Include="Objects\BrickGame\BounceBall.cpp" />
+    <ClCompile Include="Objects\BrickGame\Brick.cpp" />
     <ClCompile Include="Objects\BrickGame\PlayerBar.cpp" />
     <ClCompile Include="Objects\Collider\CircleCollider.cpp" />
     <ClCompile Include="Objects\Collider\Collider.cpp" />

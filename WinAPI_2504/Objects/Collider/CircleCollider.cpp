@@ -35,7 +35,7 @@ bool CircleCollider::IsPointCollision(const Vector2& point)
 
 bool CircleCollider::IsRectCollision(RectCollider* rect, Vector2* overlap)
 {
-	return false;
+	return rect->IsCircleCollision(this);
 }
 
 bool CircleCollider::IsCircleCollision(CircleCollider* circle)
